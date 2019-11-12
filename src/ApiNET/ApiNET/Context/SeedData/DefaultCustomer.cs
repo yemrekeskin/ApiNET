@@ -20,26 +20,44 @@ namespace ApiNET.Context
 
         public static readonly Customer Customer1 = new Customer
         {
+            Id = 1,
             Name = "Yunus Emre",
             SurName = "Keskin",
             Age = 25,
-            CustomerRank = CustomerRank.Gold
+            CustomerRank = CustomerRank.Gold,
+
+            CreateUser = "SYSTEM",
+            DateCreated = DateTime.Now,
+            ModifyUser = "SYSTEM",
+            DateModified = DateTime.Now
         };
 
         public static readonly Customer Customer2 = new Customer
         {
+            Id = 2,
             Name = "Yusuf Eren",
             SurName = "Keskin",
             Age = 18,
-            CustomerRank = CustomerRank.Bronze
+            CustomerRank = CustomerRank.Bronze,
+
+            CreateUser = "SYSTEM",
+            DateCreated = DateTime.Now,
+            ModifyUser = "SYSTEM",
+            DateModified = DateTime.Now
         };
 
         public static readonly Customer Customer3 = new Customer
         {
+            Id = 3,
             Name = "Ayşe Hacer",
             SurName = "Keskin",
             Age = 45,
-            CustomerRank = CustomerRank.Diamond
+            CustomerRank = CustomerRank.Diamond,
+
+            CreateUser = "SYSTEM",
+            DateCreated = DateTime.Now,
+            ModifyUser = "SYSTEM",
+            DateModified = DateTime.Now
         };
     }
 }

@@ -11,6 +11,6 @@ namespace ApiNET.Models
         : BaseModel
     {
         public long AddressId { get; set; }
-        public string UserId { get; set; } 
+        public long CustomerId { get; set; }  
     }
 }

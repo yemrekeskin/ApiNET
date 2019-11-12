@@ -17,17 +17,32 @@ namespace ApiNET.Context
 
         public static Address[] BuildAddress()
         {
-            return DefaultAddress.All().ToArray();
+            return DefaultAddress.AllAddress().ToArray();
+        }
+
+        public static AddressMap[] BuildAddressMap()
+        {
+            return DefaultAddress.AllAddressMap().ToArray();
         }
 
         public static Email[] BuildEmail()
         {
-            return DefaultEmail.All().ToArray();
+            return DefaultEmail.AllEmail().ToArray();
+        }
+
+        public static EmailMap[] BuildEmailMap()
+        {
+            return DefaultEmail.AllEmailMaps().ToArray(); 
         }
 
         public static Phone[] BuildPhone()
         {
-            return DefaultPhone.All().ToArray();
+            return DefaultPhone.AllPhone().ToArray();
+        }
+
+        public static PhoneMap[] BuildPhoneMap()
+        {
+            return DefaultPhone.AllPhoneMap().ToArray();
         }
 
         #endregion
