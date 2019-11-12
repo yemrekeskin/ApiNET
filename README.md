@@ -38,15 +38,16 @@
     - BlackListing
 
  ### Testing 
-  - Health Check
-  - Status Page
+  - Unit Test
+  - Load Test
   - Scheduled Api Tester
+  - Health Check Page
+  - Status Page
 
  ### Documentation
   - Swagger
   - Postman
-  - API Portal
-  
+  - API Portal  
 
 # Contribution
 Pull requests are welcome, but make sure you sign the Contributor License Agreement.
