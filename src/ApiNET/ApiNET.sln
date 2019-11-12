@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiNET", "ApiNET\ApiNET.csproj", "{AFC42670-47BC-47F4-9751-ACC488B929DE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E9905107-BFBC-41A7-9C24-ADA64A925D22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiNET.Tests", "ApiNET.Tests\ApiNET.Tests.csproj", "{248D8F08-0709-4E6F-A8A2-247CABB1BE3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{AFC42670-47BC-47F4-9751-ACC488B929DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFC42670-47BC-47F4-9751-ACC488B929DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFC42670-47BC-47F4-9751-ACC488B929DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{248D8F08-0709-4E6F-A8A2-247CABB1BE3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{248D8F08-0709-4E6F-A8A2-247CABB1BE3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{248D8F08-0709-4E6F-A8A2-247CABB1BE3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{248D8F08-0709-4E6F-A8A2-247CABB1BE3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{248D8F08-0709-4E6F-A8A2-247CABB1BE3D} = {E9905107-BFBC-41A7-9C24-ADA64A925D22}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F60B02A7-6EB6-4652-BD58-2058586FC18A}

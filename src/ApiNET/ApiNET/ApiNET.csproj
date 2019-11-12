@@ -9,6 +9,20 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Controllers\Address\ViewModels\" />
+    <Folder Include="Controllers\Customer\ViewModels\" />
+    <Folder Include="Controllers\Email\ViewModels\" />
+    <Folder Include="Controllers\Phone\ViewModels\" />
+    <Folder Include="Repository\Address\" />
+    <Folder Include="Repository\Customer\" />
+    <Folder Include="Repository\Email\" />
+    <Folder Include="Repository\Phone\" />
   </ItemGroup>
 
 </Project>
