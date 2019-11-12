@@ -1,4 +1,5 @@
-﻿using ApiNET.Models;
+﻿using ApiNET.Context;
+using ApiNET.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiNET.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -31,8 +33,18 @@ namespace ApiNET
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddEntityFrameworkSqlServer()
+                   .AddDbContext<ApplicationDbContext>(options =>
+                       options.UseSqlServer(Configuration.GetConnectionString("ApplicationDb"), sqlServerOptions =>
+                       {
+                           sqlServerOptions.UseRowNumberForPaging();
+                       }));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // Dependency Profile
+            services.DependencyLoad();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
