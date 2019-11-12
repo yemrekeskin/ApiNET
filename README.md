@@ -20,12 +20,14 @@
     - CSV
     - BSON
  - Transactional Web Api
- - Asynchronous Web Api
  - Api Licesing
 
  
  ### Performance
   - Caching
+  - Asynchronous Web Api
+  - Content Compression (GZIP or Deflate)
+  - Faster Data Access
   
  ### Security
   - Thottling - Preventing multi request
