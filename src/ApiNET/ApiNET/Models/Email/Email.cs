@@ -11,7 +11,7 @@ namespace ApiNET.Models
     public partial class Email 
         : BaseModel
     {
-        public long CustomerId { get; set; }
+        public int CustomerId { get; set; }
 
         public EmailType EmailType { get; set; }
 

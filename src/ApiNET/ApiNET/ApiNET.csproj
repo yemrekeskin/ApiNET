@@ -25,7 +25,6 @@
 
   <ItemGroup>
     <Folder Include="Controllers\Address\ViewModels\" />
-    <Folder Include="Controllers\Customer\ViewModels\" />
     <Folder Include="Controllers\Email\ViewModels\" />
   </ItemGroup>
 

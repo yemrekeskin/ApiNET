@@ -20,6 +20,8 @@ namespace ApiNET.Repository
         public static readonly Phone Phone1 = new Phone
         {
             Id = 1,
+            CustomerId = 1,
+
             ActivePassive = ActivePassive.Active,
             IsDefault = true,
             PhoneType = PhoneType.Home,
@@ -37,6 +39,8 @@ namespace ApiNET.Repository
         public static readonly Phone Phone2 = new Phone
         {
             Id = 2,
+            CustomerId = 1,
+
             ActivePassive = ActivePassive.Active,
             IsDefault = false,
             PhoneType = PhoneType.Mobile,

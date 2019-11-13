@@ -8,7 +8,7 @@ namespace ApiNET.Models
     public partial class Address
         : BaseModel
     {
-        public long CustomerId { get; set; }
+        public int CustomerId { get; set; } 
 
         public AddressType AddressType { get; set; }
 

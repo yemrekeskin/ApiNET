@@ -40,7 +40,12 @@ namespace ApiNET
                            sqlServerOptions.UseRowNumberForPaging();
                        }));
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc()
+                     .AddXmlSerializerFormatters() // Api XML Output
+                     .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // Versioning
+            services.AddApiVersioning();
 
             // Dependency Profile
             services.DependencyLoad();

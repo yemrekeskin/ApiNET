@@ -11,7 +11,7 @@ namespace ApiNET.Models
     public partial class Phone 
         : BaseModel
     {
-        public long CustomerId { get; set; }
+        public int CustomerId { get; set; }
 
         public PhoneType PhoneType { get; set; }
 

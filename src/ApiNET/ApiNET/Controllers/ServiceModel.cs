@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace ApiNET.Controllers
 {
-    public class EmailCreate
-        : ServiceModel
+    public abstract class ServiceModel
     {
+        public int Id { get; set; }
     }
 }

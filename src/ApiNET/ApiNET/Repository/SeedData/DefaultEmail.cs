@@ -20,6 +20,8 @@ namespace ApiNET.Repository
         public static readonly Email Email1 = new Email
         {
             Id = 1,
+            CustomerId = 1,
+
             ActivePassive = ActivePassive.Active,
             EmailType = EmailType.Personal,
             IsDefault = true,
@@ -34,6 +36,8 @@ namespace ApiNET.Repository
         public static readonly Email Email2 = new Email
         {
             Id = 2,
+            CustomerId = 1,
+
             ActivePassive = ActivePassive.Active,
             EmailType = EmailType.Business,
             IsDefault = false,

@@ -20,6 +20,8 @@ namespace ApiNET.Repository
         public static readonly Address Address1 = new Address
         {
             Id = 1,
+            CustomerId = 1,
+
             ActivePassive = ActivePassive.Active,
             IsDefault = true,
             AddressType = AddressType.Home,
@@ -45,6 +47,8 @@ namespace ApiNET.Repository
         public static readonly Address Address2 = new Address
         {
             Id = 2,
+            CustomerId = 1,
+
             ActivePassive = ActivePassive.Passive,
             IsDefault = false,
             AddressType = AddressType.Work,

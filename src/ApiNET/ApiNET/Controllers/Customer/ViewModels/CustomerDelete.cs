@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace ApiNET.Controllers
 {
-    public class EmailCreate
+    public class CustomerDelete
         : ServiceModel
     {
+
     }
 }
