@@ -13,8 +13,21 @@ namespace ApiNET
     {
         public static void DependencyLoad(this IServiceCollection services)
         {
+            // Customer
             services.AddScoped<IRepository<Customer>, Repository<Customer, ApplicationDbContext>>();
             services.AddScoped<ICustomerService, CustomerService>();
+
+            // Address
+            services.AddScoped<IRepository<Address>, Repository<Address, ApplicationDbContext>>();
+            services.AddScoped<IAddressService, AddressService>();
+            
+            // Phone
+            services.AddScoped<IRepository<Phone>, Repository<Phone, ApplicationDbContext>>();
+            services.AddScoped<IPhoneService, PhoneService>();
+
+            // Email
+            services.AddScoped<IRepository<Email>, Repository<Email, ApplicationDbContext>>();
+            services.AddScoped<IEmailService, EmailService>();
         }
     }
 }

@@ -7,9 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiNET.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class PhoneController : ControllerBase
+    [ApiVersion("1.0")]
+    public class PhoneController 
+        : ApiControllerBase
     {
+
     }
 }

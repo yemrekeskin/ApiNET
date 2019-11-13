@@ -7,10 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiNET.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    [ApiVersion("1.0")]
     public class CustomerController 
-        : ControllerBase
+        : ApiControllerBase
     {
 
     }
