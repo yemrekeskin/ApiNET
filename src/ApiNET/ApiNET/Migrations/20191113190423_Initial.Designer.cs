@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiNET.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191112204810_Initial")]
+    [Migration("20191113190423_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,6 +43,8 @@ namespace ApiNET.Migrations
 
                     b.Property<string>("CreateUser")
                         .HasMaxLength(100);
+
+                    b.Property<long>("CustomerId");
 
                     b.Property<DateTime>("DateCreated");
 
@@ -79,8 +81,9 @@ namespace ApiNET.Migrations
                             Country = "Turkey",
                             County = "Istanbul",
                             CreateUser = "SYSTEM",
-                            DateCreated = new DateTime(2019, 11, 12, 23, 48, 10, 444, DateTimeKind.Local).AddTicks(2879),
-                            DateModified = new DateTime(2019, 11, 12, 23, 48, 10, 444, DateTimeKind.Local).AddTicks(2883),
+                            CustomerId = 0L,
+                            DateCreated = new DateTime(2019, 11, 13, 22, 4, 23, 404, DateTimeKind.Local).AddTicks(2032),
+                            DateModified = new DateTime(2019, 11, 13, 22, 4, 23, 404, DateTimeKind.Local).AddTicks(2037),
                             FlatNumber = "52",
                             IsDefault = true,
                             IsDeleted = false,
@@ -100,8 +103,9 @@ namespace ApiNET.Migrations
                             Country = "Turkey",
                             County = "Istanbul",
                             CreateUser = "SYSTEM",
-                            DateCreated = new DateTime(2019, 11, 12, 23, 48, 10, 444, DateTimeKind.Local).AddTicks(2926),
-                            DateModified = new DateTime(2019, 11, 12, 23, 48, 10, 444, DateTimeKind.Local).AddTicks(2926),
+                            CustomerId = 0L,
+                            DateCreated = new DateTime(2019, 11, 13, 22, 4, 23, 404, DateTimeKind.Local).AddTicks(2082),
+                            DateModified = new DateTime(2019, 11, 13, 22, 4, 23, 404, DateTimeKind.Local).AddTicks(2083),
                             FlatNumber = "3",
                             IsDefault = false,
                             IsDeleted = false,
@@ -109,57 +113,6 @@ namespace ApiNET.Migrations
                             PostCode = "34600",
                             Street = "Yenisehir",
                             Town = "Pendik"
-                        });
-                });
-
-            modelBuilder.Entity("ApiNET.Models.AddressMap", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("AddressId");
-
-                    b.Property<string>("CreateUser")
-                        .HasMaxLength(100);
-
-                    b.Property<long>("CustomerId");
-
-                    b.Property<DateTime>("DateCreated");
-
-                    b.Property<DateTime?>("DateModified");
-
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<string>("ModifyUser")
-                        .HasMaxLength(100);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AddressMaps");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            AddressId = 1L,
-                            CreateUser = "SYSTEM",
-                            CustomerId = 1L,
-                            DateCreated = new DateTime(2019, 11, 12, 23, 48, 10, 444, DateTimeKind.Local).AddTicks(3962),
-                            DateModified = new DateTime(2019, 11, 12, 23, 48, 10, 444, DateTimeKind.Local).AddTicks(3964),
-                            IsDeleted = false,
-                            ModifyUser = "SYSTEM"
-                        },
-                        new
-                        {
-                            Id = 2L,
-                            AddressId = 2L,
-                            CreateUser = "SYSTEM",
-                            CustomerId = 1L,
-                            DateCreated = new DateTime(2019, 11, 12, 23, 48, 10, 444, DateTimeKind.Local).AddTicks(3978),
-                            DateModified = new DateTime(2019, 11, 12, 23, 48, 10, 444, DateTimeKind.Local).AddTicks(3979),
-                            IsDeleted = false,
-                            ModifyUser = "SYSTEM"
                         });
                 });
 
@@ -200,8 +153,8 @@ namespace ApiNET.Migrations
                             Age = 25,
                             CreateUser = "SYSTEM",
                             CustomerRank = 2,
-                            DateCreated = new DateTime(2019, 11, 12, 23, 48, 10, 439, DateTimeKind.Local).AddTicks(9048),
-                            DateModified = new DateTime(2019, 11, 12, 23, 48, 10, 442, DateTimeKind.Local).AddTicks(7397),
+                            DateCreated = new DateTime(2019, 11, 13, 22, 4, 23, 401, DateTimeKind.Local).AddTicks(1944),
+                            DateModified = new DateTime(2019, 11, 13, 22, 4, 23, 402, DateTimeKind.Local).AddTicks(674),
                             IsDeleted = false,
                             ModifyUser = "SYSTEM",
                             Name = "Yunus Emre",
@@ -213,8 +166,8 @@ namespace ApiNET.Migrations
                             Age = 18,
                             CreateUser = "SYSTEM",
                             CustomerRank = 0,
-                            DateCreated = new DateTime(2019, 11, 12, 23, 48, 10, 443, DateTimeKind.Local).AddTicks(418),
-                            DateModified = new DateTime(2019, 11, 12, 23, 48, 10, 443, DateTimeKind.Local).AddTicks(427),
+                            DateCreated = new DateTime(2019, 11, 13, 22, 4, 23, 402, DateTimeKind.Local).AddTicks(9805),
+                            DateModified = new DateTime(2019, 11, 13, 22, 4, 23, 402, DateTimeKind.Local).AddTicks(9819),
                             IsDeleted = false,
                             ModifyUser = "SYSTEM",
                             Name = "Yusuf Eren",
@@ -226,8 +179,8 @@ namespace ApiNET.Migrations
                             Age = 45,
                             CreateUser = "SYSTEM",
                             CustomerRank = 4,
-                            DateCreated = new DateTime(2019, 11, 12, 23, 48, 10, 443, DateTimeKind.Local).AddTicks(432),
-                            DateModified = new DateTime(2019, 11, 12, 23, 48, 10, 443, DateTimeKind.Local).AddTicks(433),
+                            DateCreated = new DateTime(2019, 11, 13, 22, 4, 23, 402, DateTimeKind.Local).AddTicks(9823),
+                            DateModified = new DateTime(2019, 11, 13, 22, 4, 23, 402, DateTimeKind.Local).AddTicks(9823),
                             IsDeleted = false,
                             ModifyUser = "SYSTEM",
                             Name = "Ayşe Hacer",
@@ -245,6 +198,8 @@ namespace ApiNET.Migrations
 
                     b.Property<string>("CreateUser")
                         .HasMaxLength(100);
+
+                    b.Property<long>("CustomerId");
 
                     b.Property<DateTime>("DateCreated");
 
@@ -271,8 +226,9 @@ namespace ApiNET.Migrations
                             Id = 1L,
                             ActivePassive = 0,
                             CreateUser = "SYSTEM",
-                            DateCreated = new DateTime(2019, 11, 12, 23, 48, 10, 445, DateTimeKind.Local).AddTicks(3679),
-                            DateModified = new DateTime(2019, 11, 12, 23, 48, 10, 445, DateTimeKind.Local).AddTicks(3682),
+                            CustomerId = 0L,
+                            DateCreated = new DateTime(2019, 11, 13, 22, 4, 23, 404, DateTimeKind.Local).AddTicks(8120),
+                            DateModified = new DateTime(2019, 11, 13, 22, 4, 23, 404, DateTimeKind.Local).AddTicks(8122),
                             EmailAddress = "yemrekeskin@gmail.com",
                             EmailType = 1,
                             IsDefault = true,
@@ -284,62 +240,12 @@ namespace ApiNET.Migrations
                             Id = 2L,
                             ActivePassive = 0,
                             CreateUser = "SYSTEM",
-                            DateCreated = new DateTime(2019, 11, 12, 23, 48, 10, 445, DateTimeKind.Local).AddTicks(3704),
-                            DateModified = new DateTime(2019, 11, 12, 23, 48, 10, 445, DateTimeKind.Local).AddTicks(3704),
+                            CustomerId = 0L,
+                            DateCreated = new DateTime(2019, 11, 13, 22, 4, 23, 404, DateTimeKind.Local).AddTicks(8142),
+                            DateModified = new DateTime(2019, 11, 13, 22, 4, 23, 404, DateTimeKind.Local).AddTicks(8143),
                             EmailAddress = "info@yemrekeskin.com",
                             EmailType = 0,
                             IsDefault = false,
-                            IsDeleted = false,
-                            ModifyUser = "SYSTEM"
-                        });
-                });
-
-            modelBuilder.Entity("ApiNET.Models.EmailMap", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CreateUser")
-                        .HasMaxLength(100);
-
-                    b.Property<long>("CustomerId");
-
-                    b.Property<DateTime>("DateCreated");
-
-                    b.Property<DateTime?>("DateModified");
-
-                    b.Property<long>("EmailId");
-
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<string>("ModifyUser")
-                        .HasMaxLength(100);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("EmailMaps");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            CreateUser = "SYSTEM",
-                            CustomerId = 1L,
-                            DateCreated = new DateTime(2019, 11, 12, 23, 48, 10, 445, DateTimeKind.Local).AddTicks(4716),
-                            DateModified = new DateTime(2019, 11, 12, 23, 48, 10, 445, DateTimeKind.Local).AddTicks(4717),
-                            EmailId = 1L,
-                            IsDeleted = false,
-                            ModifyUser = "SYSTEM"
-                        },
-                        new
-                        {
-                            Id = 2L,
-                            CreateUser = "SYSTEM",
-                            CustomerId = 1L,
-                            DateCreated = new DateTime(2019, 11, 12, 23, 48, 10, 445, DateTimeKind.Local).AddTicks(4732),
-                            DateModified = new DateTime(2019, 11, 12, 23, 48, 10, 445, DateTimeKind.Local).AddTicks(4732),
-                            EmailId = 2L,
                             IsDeleted = false,
                             ModifyUser = "SYSTEM"
                         });
@@ -359,6 +265,8 @@ namespace ApiNET.Migrations
 
                     b.Property<string>("CreateUser")
                         .HasMaxLength(100);
+
+                    b.Property<long>("CustomerId");
 
                     b.Property<DateTime>("DateCreated");
 
@@ -387,8 +295,9 @@ namespace ApiNET.Migrations
                             AreaCode = "212",
                             Country = "90",
                             CreateUser = "SYSTEM",
-                            DateCreated = new DateTime(2019, 11, 12, 23, 48, 10, 446, DateTimeKind.Local).AddTicks(5121),
-                            DateModified = new DateTime(2019, 11, 12, 23, 48, 10, 446, DateTimeKind.Local).AddTicks(5123),
+                            CustomerId = 0L,
+                            DateCreated = new DateTime(2019, 11, 13, 22, 4, 23, 405, DateTimeKind.Local).AddTicks(4725),
+                            DateModified = new DateTime(2019, 11, 13, 22, 4, 23, 405, DateTimeKind.Local).AddTicks(4728),
                             IsDefault = true,
                             IsDeleted = false,
                             ModifyUser = "SYSTEM",
@@ -402,64 +311,14 @@ namespace ApiNET.Migrations
                             AreaCode = "543",
                             Country = "90",
                             CreateUser = "SYSTEM",
-                            DateCreated = new DateTime(2019, 11, 12, 23, 48, 10, 446, DateTimeKind.Local).AddTicks(5148),
-                            DateModified = new DateTime(2019, 11, 12, 23, 48, 10, 446, DateTimeKind.Local).AddTicks(5149),
+                            CustomerId = 0L,
+                            DateCreated = new DateTime(2019, 11, 13, 22, 4, 23, 405, DateTimeKind.Local).AddTicks(4752),
+                            DateModified = new DateTime(2019, 11, 13, 22, 4, 23, 405, DateTimeKind.Local).AddTicks(4753),
                             IsDefault = false,
                             IsDeleted = false,
                             ModifyUser = "SYSTEM",
                             Number = "5556677",
                             PhoneType = 2
-                        });
-                });
-
-            modelBuilder.Entity("ApiNET.Models.PhoneMap", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CreateUser")
-                        .HasMaxLength(100);
-
-                    b.Property<long>("CustomerId");
-
-                    b.Property<DateTime>("DateCreated");
-
-                    b.Property<DateTime?>("DateModified");
-
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<string>("ModifyUser")
-                        .HasMaxLength(100);
-
-                    b.Property<long>("PhoneId");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PhoneMaps");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            CreateUser = "SYSTEM",
-                            CustomerId = 1L,
-                            DateCreated = new DateTime(2019, 11, 12, 23, 48, 10, 446, DateTimeKind.Local).AddTicks(6330),
-                            DateModified = new DateTime(2019, 11, 12, 23, 48, 10, 446, DateTimeKind.Local).AddTicks(6331),
-                            IsDeleted = false,
-                            ModifyUser = "SYSTEM",
-                            PhoneId = 1L
-                        },
-                        new
-                        {
-                            Id = 2L,
-                            CreateUser = "SYSTEM",
-                            CustomerId = 1L,
-                            DateCreated = new DateTime(2019, 11, 12, 23, 48, 10, 446, DateTimeKind.Local).AddTicks(6345),
-                            DateModified = new DateTime(2019, 11, 12, 23, 48, 10, 446, DateTimeKind.Local).AddTicks(6345),
-                            IsDeleted = false,
-                            ModifyUser = "SYSTEM",
-                            PhoneId = 1L
                         });
                 });
 #pragma warning restore 612, 618

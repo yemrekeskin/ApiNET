@@ -44,40 +44,5 @@ namespace ApiNET.Repository
             ModifyUser = "SYSTEM",
             DateModified = DateTime.Now
         };
-        
-
-
-        public static List<EmailMap> AllEmailMaps()
-        {
-            return new List<EmailMap>
-            {
-                EmailMap1,
-                EmailMap2
-            };
-        }
-
-        public static readonly EmailMap EmailMap1 = new EmailMap
-        {
-            Id = 1,
-            EmailId = 1,
-            CustomerId = 1,
-
-            CreateUser = "SYSTEM",
-            DateCreated = DateTime.Now,
-            ModifyUser = "SYSTEM",
-            DateModified = DateTime.Now
-        };
-
-        public static readonly EmailMap EmailMap2 = new EmailMap
-        {
-            Id = 2,
-            EmailId = 2,
-            CustomerId = 1,
-
-            CreateUser = "SYSTEM",
-            DateCreated = DateTime.Now,
-            ModifyUser = "SYSTEM",
-            DateModified = DateTime.Now
-        };
     }
 }

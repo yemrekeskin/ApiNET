@@ -16,14 +16,11 @@ namespace ApiNET.Services
         : IEmailService
     {
         private readonly IRepository<Email> emailRepo;
-        private readonly IRepository<EmailMap> emailMapRepo;
 
         public EmailService(
-            IRepository<Email> emailRepo,
-            IRepository<EmailMap> emailMapRepo)
+            IRepository<Email> emailRepo)
         {
             this.emailRepo = emailRepo;
-            this.emailMapRepo = emailMapRepo;
         }
     }
 }

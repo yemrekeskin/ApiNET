@@ -66,41 +66,5 @@ namespace ApiNET.Repository
             ModifyUser = "SYSTEM",
             DateModified = DateTime.Now
         };
-
-
-
-
-        public static List<AddressMap> AllAddressMap()
-        {
-            return new List<AddressMap>
-            {
-                AddressMap1,
-                AddressMap2
-            };
-        }
-
-        public static readonly AddressMap AddressMap1 = new AddressMap
-        {
-            Id = 1,
-            AddressId = 1,
-            CustomerId = 1,
-
-            CreateUser = "SYSTEM",
-            DateCreated = DateTime.Now,
-            ModifyUser = "SYSTEM",
-            DateModified = DateTime.Now
-        };
-
-        public static readonly AddressMap AddressMap2 = new AddressMap
-        {
-            Id = 2,
-            AddressId = 2,
-            CustomerId = 1,
-
-            CreateUser = "SYSTEM",
-            DateCreated = DateTime.Now,
-            ModifyUser = "SYSTEM",
-            DateModified = DateTime.Now
-        };
     }
 }

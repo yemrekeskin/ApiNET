@@ -16,14 +16,11 @@ namespace ApiNET.Services
         : IPhoneService
     {
         private readonly IRepository<Phone> phoneRepo;
-        private readonly IRepository<PhoneMap> phoneMapRepo;
 
         public PhoneService(
-            IRepository<Phone> phoneRepo,
-            IRepository<PhoneMap> phoneMapRepo)
+            IRepository<Phone> phoneRepo)
         {
             this.phoneRepo = phoneRepo;
-            this.phoneMapRepo = phoneMapRepo;
         }
     }
 }

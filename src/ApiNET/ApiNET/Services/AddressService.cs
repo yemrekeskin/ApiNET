@@ -16,14 +16,11 @@ namespace ApiNET.Services
         : IAddressService
     {
         private readonly IRepository<Address> addressRepo;
-        private readonly IRepository<AddressMap> addressMapRepo;
 
         public AddressService(
-            IRepository<Address> addressRepo,
-            IRepository<AddressMap> addressMapRepo)
+            IRepository<Address> addressRepo)
         {
             this.addressRepo = addressRepo;
-            this.addressMapRepo = addressMapRepo;
         }
     }
 }

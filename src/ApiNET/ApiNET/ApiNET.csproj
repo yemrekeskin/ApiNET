@@ -5,6 +5,14 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CodeAnalysisRuleSet />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <CodeAnalysisRuleSet />
+  </PropertyGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
@@ -19,7 +27,6 @@
     <Folder Include="Controllers\Address\ViewModels\" />
     <Folder Include="Controllers\Customer\ViewModels\" />
     <Folder Include="Controllers\Email\ViewModels\" />
-    <Folder Include="Controllers\Phone\ViewModels\" />
   </ItemGroup>
 
 </Project>

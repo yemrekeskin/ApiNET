@@ -50,39 +50,5 @@ namespace ApiNET.Repository
             ModifyUser = "SYSTEM",
             DateModified = DateTime.Now
         };
-
-
-        public static List<PhoneMap> AllPhoneMap()
-        {
-            return new List<PhoneMap>
-            {
-                PhoneMap1,
-                PhoneMap2
-            };
-        }
-
-        public static readonly PhoneMap PhoneMap1 = new PhoneMap
-        {
-            Id = 1,
-            PhoneId = 1,
-            CustomerId = 1,
-
-            CreateUser = "SYSTEM",
-            DateCreated = DateTime.Now,
-            ModifyUser = "SYSTEM",
-            DateModified = DateTime.Now
-        };
-
-        public static readonly PhoneMap PhoneMap2 = new PhoneMap
-        {
-            Id = 2,
-            PhoneId = 1,
-            CustomerId = 1,
-
-            CreateUser = "SYSTEM",
-            DateCreated = DateTime.Now,
-            ModifyUser = "SYSTEM",
-            DateModified = DateTime.Now
-        };
     }
 }
