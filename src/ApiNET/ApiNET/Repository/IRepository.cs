@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApiNET.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -6,28 +7,25 @@ using System.Threading.Tasks;
 
 namespace ApiNET.Repository
 {
-    public interface IRepository<TModel>
+    public interface IRepository<TEntity>
+         where TEntity : BaseModel
     {
-        TModel Get(long id, params Expression<Func<TModel, object>>[] includeProperties);
+        TEntity FindById(long id, params Expression<Func<TEntity, object>>[] includeProperties);
+        IQueryable<TEntity> FindAll(params Expression<Func<TEntity, object>>[] includeProperties);
+        IQueryable<TEntity> FindAll(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, object>>[] includeProperties);
 
+        void Update(TEntity entity);
+        void UpdateAll(Expression<Func<TEntity, object>> updateProperty, object updateValue, Expression<Func<TEntity, bool>> predicate = null);
 
-        IQueryable<TModel> List(params Expression<Func<TModel, object>>[] includeProperties);
-        IQueryable<TModel> List(Expression<Func<TModel, bool>> predicate, params Expression<Func<TModel, object>>[] includeProperties);
-        IQueryable<TModel> List(Expression<Func<TModel, bool>> predicate);
-        IQueryable<TModel> List(IEnumerable<long> ids);
+        void Add(TEntity entity);
+        void AddBatch(ICollection<TEntity> entities);
 
-        void Update(TModel entity);
-        void Add(TModel entity);
-        void AddBatch(ICollection<TModel> entities);
+        TEntity Remove(long id);
+        void RemoveBatch(ICollection<TEntity> entities);
+        void Remove(TEntity entity);
+        TEntity RemovePhysical(long id);
 
-
-        TModel Remove(long id);
-        void RemoveBatch(ICollection<TModel> entities);
-        void Remove(TModel entity);
-        void Remove(Expression<Func<TModel, bool>> predicate);
-
-        IQueryable<TModel> FromSql(string sqlQuery, params object[] parameters);
-
-        int SaveChanges();
+        IQueryable<TEntity> FromSql(string sqlQuery, params object[] parameters);
+        IQueryable<TEntity> GetList();
     }
 }

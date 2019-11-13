@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using ApiNET.Models;
+using ApiNET.Repository;
+using ApiNET.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +13,8 @@ namespace ApiNET
     {
         public static void DependencyLoad(this IServiceCollection services)
         {
-            
+            services.AddScoped<IRepository<Customer>, Repository<Customer, ApplicationDbContext>>();
+            services.AddScoped<ICustomerService, CustomerService>();
         }
     }
 }

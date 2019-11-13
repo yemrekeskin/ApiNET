@@ -4,62 +4,67 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ApiNET.Context
+namespace ApiNET.Repository
 {
-    public class DefaultEmail
+    public class DefaultPhone
     {
-        public static List<Email> AllEmail()
+        public static List<Phone> AllPhone()
         {
-            return new List<Email>
+            return new List<Phone>
             {
-                Email1,
-                Email2
+                Phone1,
+                Phone2
             };
         }
-        
-        public static readonly Email Email1 = new Email
+
+        public static readonly Phone Phone1 = new Phone
         {
             Id = 1,
             ActivePassive = ActivePassive.Active,
-            EmailType = EmailType.Personal,
             IsDefault = true,
-            EmailAddress = "yemrekeskin@gmail.com",
+            PhoneType = PhoneType.Home,
+
+            Country = "90",
+            AreaCode = "212",
+            Number = "3786869",
 
             CreateUser = "SYSTEM",
             DateCreated = DateTime.Now,
             ModifyUser = "SYSTEM",
             DateModified = DateTime.Now
         };
-                
-        public static readonly Email Email2 = new Email
+
+        public static readonly Phone Phone2 = new Phone
         {
             Id = 2,
             ActivePassive = ActivePassive.Active,
-            EmailType = EmailType.Business,
             IsDefault = false,
-            EmailAddress = "info@yemrekeskin.com",
+            PhoneType = PhoneType.Mobile,
+
+            Country = "90",
+            AreaCode = "543",
+            Number = "5556677",
 
             CreateUser = "SYSTEM",
             DateCreated = DateTime.Now,
             ModifyUser = "SYSTEM",
             DateModified = DateTime.Now
         };
-        
 
 
-        public static List<EmailMap> AllEmailMaps()
+        public static List<PhoneMap> AllPhoneMap()
         {
-            return new List<EmailMap>
+            return new List<PhoneMap>
             {
-                EmailMap1,
-                EmailMap2
+                PhoneMap1,
+                PhoneMap2
             };
         }
 
-        public static readonly EmailMap EmailMap1 = new EmailMap
+        public static readonly PhoneMap PhoneMap1 = new PhoneMap
         {
             Id = 1,
-            EmailId = 1,
+            PhoneId = 1,
             CustomerId = 1,
 
             CreateUser = "SYSTEM",
@@ -68,10 +73,10 @@ namespace ApiNET.Context
             DateModified = DateTime.Now
         };
 
-        public static readonly EmailMap EmailMap2 = new EmailMap
+        public static readonly PhoneMap PhoneMap2 = new PhoneMap
         {
             Id = 2,
-            EmailId = 2,
+            PhoneId = 1,
             CustomerId = 1,
 
             CreateUser = "SYSTEM",

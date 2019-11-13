@@ -19,10 +19,6 @@
     <Folder Include="Controllers\Customer\ViewModels\" />
     <Folder Include="Controllers\Email\ViewModels\" />
     <Folder Include="Controllers\Phone\ViewModels\" />
-    <Folder Include="Repository\Address\" />
-    <Folder Include="Repository\Customer\" />
-    <Folder Include="Repository\Email\" />
-    <Folder Include="Repository\Phone\" />
   </ItemGroup>
 
 </Project>
