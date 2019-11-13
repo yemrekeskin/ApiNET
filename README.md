@@ -22,7 +22,10 @@
     - BSON
  - Transactional Web Api
  - Api Licesing
-
+ 
+ ### Concepts
+  - Microservices
+  - API Gateway
  
  ### Performance
   - Caching
@@ -31,7 +34,7 @@
   - Faster Data Access
   
  ### Security
-  - Thottling - Preventing multi request
+  - Thottling - Rate Limiting - Preventing multi request 
   - Authentication - JWT
   - Authorization
   - IP Restriction
