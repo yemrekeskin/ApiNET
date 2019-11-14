@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiNET.Middleware;
 using ApiNET.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -49,7 +50,7 @@ namespace ApiNET
 
             // Dependency Profile
             services.DependencyLoad();
-
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,6 +70,10 @@ namespace ApiNET
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            //Add our new middleware to the pipeline
+            // web api request-response logging
+            app.UseMiddleware<LoggingMiddleware>();
 
             app.UseMvc(routes =>
             {
