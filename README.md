@@ -9,14 +9,14 @@
 ## API Design
 
  ### Use-Cases
- - Simple CRUD Operations
- - Bulk Operations
+ - Simple CRUD Operations 🆗
+ - Bulk Operations 🆗
  - Filtering, searching and paging Operations
- - Consume External API
+ - Consume External API 🆗
  - Request/Response Loging
- - Model Validations
- - Versioning
- - XML/JSON Output
+ - Model Validations 🆗
+ - Versioning 🆗
+ - XML/JSON Output 🆗
   - MediaType Formatters
     - CSV
     - BSON
