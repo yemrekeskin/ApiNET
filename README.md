@@ -24,8 +24,8 @@
  - Api Licesing
  
  ### Concepts
-  - Microservices
-  - API Gateway
+  - Microservices 🚩
+  - API Gateway 🚩
  
  ### Performance
   - Caching
