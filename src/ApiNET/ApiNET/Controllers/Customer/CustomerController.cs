@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ApiNET.Models;
 using ApiNET.Services;
+using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,11 +15,14 @@ namespace ApiNET.Controllers
         : ApiControllerBase
     {
         private readonly ICustomerService customerService;
+        private readonly IValidator<CustomerCreate> customerCreateValidator;
 
         public CustomerController(
-            ICustomerService customerService)
+            ICustomerService customerService,
+            IValidator<CustomerCreate> customerCreateValidator)
         {
             this.customerService = customerService;
+            this.customerCreateValidator = customerCreateValidator;
         }
 
         [HttpGet]
@@ -61,6 +65,19 @@ namespace ApiNET.Controllers
             if (customerCreate == null)
             {
                 return BadRequest();
+            }
+
+            // Attribute-Based Validation
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            // Custom and Method Validations
+            var validationResult = customerCreateValidator.Validate(customerCreate);
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult);
             }
 
             // service model convert to model

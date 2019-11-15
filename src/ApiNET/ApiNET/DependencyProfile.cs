@@ -1,6 +1,8 @@
-﻿using ApiNET.Models;
+﻿using ApiNET.Controllers;
+using ApiNET.Models;
 using ApiNET.Repository;
 using ApiNET.Services;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -31,6 +33,10 @@ namespace ApiNET
 
             // External
             services.AddScoped<IApiService, ApiService>();
+
+            // Validators
+            services.AddSingleton<IValidator<CustomerCreate>, CustomerCreateValidator>();
+
         }
     }
 }

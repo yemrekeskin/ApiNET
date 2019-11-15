@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ApiNET.Middleware;
 using ApiNET.Repository;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -43,6 +44,7 @@ namespace ApiNET
 
             services.AddMvc()
                      .AddXmlSerializerFormatters() // Api XML Output
+                     .AddFluentValidation() // api service model validation
                      .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // Versioning
@@ -73,7 +75,7 @@ namespace ApiNET
 
             //Add our new middleware to the pipeline
             // web api request-response logging
-            app.UseMiddleware<LoggingMiddleware>();
+            //app.UseMiddleware<LoggingMiddleware>();
 
             app.UseMvc(routes =>
             {
