@@ -45,13 +45,23 @@
   - Unit Test
   - Load Test
   - Scheduled Api Tester
+     - https://uptimerobot.com/
   - Health Check Page
-  - Status Page
+  - Status Page for API and System
+     - https://api.twitterstat.us/
+     - https://reddit.statuspage.io/
+     - https://status.dropbox.com/
+     - https://status.digitalocean.com/
 
  ### Documentation
   - Swagger
   - Postman
   - API Portal  
+    - https://developer.isbank.com.tr/
+    - https://developer.turkishairlines.com/
+    - https://apiportal.akbank.com/
+    - https://apiportal.yapikredi.com.tr/
+    - https://developers.garantibbva.com.tr/
 
 ## Contribution
 Pull requests are welcome, but make sure you sign the Contributor License Agreement.
