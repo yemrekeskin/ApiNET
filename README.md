@@ -5,8 +5,10 @@
 ## Data Model
 
 ## Technical Specifications
-
- - MediaTypeFormatter - WebAPIContrib.Core https://github.com/WebApiContrib/WebAPIContrib.Core
+ - Validation - [FluentValidation](https://fluentvalidation.net/) for model validation
+ - Database - Local SQL Server 
+ - Data Access Framework - ORM - [EntityFrameworkCore](https://docs.microsoft.com/en-us/ef/core/) - Generic Repository
+ - MediaTypeFormatter - [WebAPIContrib.Core](https://github.com/WebApiContrib/WebAPIContrib.Core)
 
 ## API Design
 
