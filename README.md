@@ -6,6 +6,8 @@
 
 ## Technical Specifications
 
+ - MediaTypeFormatter - WebAPIContrib.Core https://github.com/WebApiContrib/WebAPIContrib.Core
+
 ## API Design
 
  ### Use-Cases
@@ -13,15 +15,17 @@
  - Bulk Operations 🆗
  - Filtering, searching and paging Operations
  - Consume External API 🆗
+    - HttpClient
+    - ApiService
  - Request/Response Loging
  - Model Validations 🆗
  - Versioning 🆗
  - XML/JSON Output 🆗
-  - MediaType Formatters
-    - CSV
-    - BSON
+ - MediaType Formatters
+    - CSV 🆗
+    - BSON 🆗
  - Transactional Web Api
- - Api Licesing
+ - Api Licesing 🤔
  
  ### Concepts
   - Microservices 🚩
@@ -29,7 +33,7 @@
  
  ### Performance
   - Caching
-  - Asynchronous Web Api
+  - Asynchronous Web Api 🆗
   - Content Compression (GZIP or Deflate)
   - Faster Data Access
   
@@ -44,6 +48,7 @@
  ### Testing 
   - Unit Test
   - Load Test
+     - https://websurge.west-wind.com/
   - Scheduled Api Tester
      - https://uptimerobot.com/
   - Health Check Page
