@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiNET.Extension;
 using ApiNET.Middleware;
 using ApiNET.Repository;
 using FluentValidation.AspNetCore;
@@ -37,6 +38,9 @@ namespace ApiNET
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            // Inject Application Options
+            services.Configure<ApplicationOptions>(Configuration.GetSection("ApplicationOptions"));
 
             services.AddEntityFrameworkSqlServer()
                    .AddDbContext<ApplicationDbContext>(options =>
@@ -82,6 +86,7 @@ namespace ApiNET
             //Add our new middleware to the pipeline
             // web api request-response logging
             //app.UseMiddleware<LoggingMiddleware>();
+            app.UseIPFilter();
 
             app.UseMvc(routes =>
             {
