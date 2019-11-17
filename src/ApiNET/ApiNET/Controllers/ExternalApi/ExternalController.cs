@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using ApiNET.Attribute;
 using ApiNET.Models;
 using ApiNET.Services;
 using Microsoft.AspNetCore.Http;
@@ -31,33 +32,5 @@ namespace ApiNET.Controllers
             var result = await apiService.InvokeGet<List<Countries>>(endpoint);
             return Ok(result);
         }
-
-        //[HttpPost]        
-        //public async Task<IActionResult> GetBsonDataAsync()
-        //{
-        //    using (HttpClient client = new HttpClient())
-        //    {
-        //        client.BaseAddress = new Uri("https://localhost:44339/");
-
-        //        // Set the Accept header for BSON.
-        //        client.DefaultRequestHeaders.Accept.Clear();
-        //        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/bson"));
-
-        //        CustomerCreate customerCreate = new CustomerCreate()
-        //        {
-        //            Name = "New Customer",
-        //            SurName = "Surname",
-        //            CustomerRank = CustomerRank.Bronze,
-        //            Age = 15
-        //        };
-
-        //        // GET using the BSON formatter.
-        //        MediaTypeFormatter bsonFormatter = new BsonMediaTypeFormatter();
-        //        var result = await client.PostAsync("api/v1/customer", customerCreate, bsonFormatter);
-
-        //        result.EnsureSuccessStatusCode();
-        //    }
-        //    return Ok();
-        //}
     }
 }

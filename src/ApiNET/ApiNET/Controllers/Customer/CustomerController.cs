@@ -16,21 +16,32 @@ namespace ApiNET.Controllers
     {
         private readonly ICustomerService customerService;
         private readonly IValidator<CustomerCreate> customerCreateValidator;
+        private readonly ICacheService cacheService;
 
         public CustomerController(
             ICustomerService customerService,
-            IValidator<CustomerCreate> customerCreateValidator)
+            IValidator<CustomerCreate> customerCreateValidator,
+            ICacheService cacheService)
         {
             this.customerService = customerService;
             this.customerCreateValidator = customerCreateValidator;
+            this.cacheService = cacheService;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            var list = customerService.GetCustomers(); // list action
-            // model - service viewmodel mapper operation
-            return Ok(list);
+            var customers = cacheService.Get<List<Customer>>("CustomerList");
+            if (customers == null)
+            {
+                var list = customerService.GetCustomers();
+                cacheService.Add<List<Customer>>("CustomerList", list);
+                return Ok(list);
+            }
+            else
+            {
+                return Ok(customers);
+            }
         }
 
         [HttpGet("{id}", Name = "GetCustomer")]

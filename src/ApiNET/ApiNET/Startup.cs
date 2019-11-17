@@ -50,6 +50,10 @@ namespace ApiNET
                        }));
 
             services.AddMvc()
+                     // JSON serializer config
+                     //.AddJsonOptions(options =>
+                     //   options.SerializerSettings
+                     //).
                      .AddCsvSerializerFormatters() // api csv output
                      .AddPlainTextFormatters() // api plain text output
                      .AddBsonSerializerFormatters() // api BSON output

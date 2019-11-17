@@ -37,6 +37,8 @@ namespace ApiNET
             // Validators
             services.AddSingleton<IValidator<CustomerCreate>, CustomerCreateValidator>();
 
+            // cache
+            services.AddSingleton<ICacheService, CacheService>();
         }
     }
 }
