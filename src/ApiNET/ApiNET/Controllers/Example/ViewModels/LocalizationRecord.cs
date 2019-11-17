@@ -1,4 +1,4 @@
-﻿namespace ApiNET.Controllers.Samples
+﻿namespace ApiNET.Controllers
 {
     internal class LocalizationRecord
     {

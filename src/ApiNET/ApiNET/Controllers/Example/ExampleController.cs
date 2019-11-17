@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ApiNET.Controllers.Samples
+namespace ApiNET.Controllers
 {
-    public class ExampleController 
+    public partial class ExampleController 
         : ApiControllerBase
     {
         [HttpGet]
