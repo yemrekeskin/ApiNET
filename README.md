@@ -15,7 +15,7 @@
  ### Use-Cases
  - Simple CRUD Operations 🆗
  - Bulk Operations 🆗
- - Filtering, searching and paging Operations
+ - Filtering, searching and paging Operations 🆗
  - Consume External API 🆗
     - HttpClient
     - ApiService
@@ -37,7 +37,8 @@
   - Caching
   - Asynchronous Web Api 🆗
   - Content Compression (GZIP or Deflate)
-  - Faster Data Access
+  - Faster Data Access 
+      - Consider alternatives ; ADO.NET, Dapper, Nosql Databases
   
  ### Security
   - Thottling - Rate Limiting - Preventing multi request 
@@ -63,6 +64,7 @@
  ### Documentation
   - Swagger
   - Postman
+     - [ApiNET Services](https://documenter.getpostman.com/view/3164594/SW7XZ9Mj?version=latest)
   - API Portal  
     - https://developer.isbank.com.tr/
     - https://developer.turkishairlines.com/
