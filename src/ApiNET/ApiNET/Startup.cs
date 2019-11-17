@@ -13,6 +13,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WebApiContrib.Core.Formatter.Bson;
+using WebApiContrib.Core.Formatter.Csv;
+using WebApiContrib.Core.Formatter.PlainText;
 
 namespace ApiNET
 {
@@ -43,10 +46,13 @@ namespace ApiNET
                        }));
 
             services.AddMvc()
-                     .AddXmlSerializerFormatters() // Api XML Output
+                     .AddCsvSerializerFormatters() // api csv output
+                     .AddPlainTextFormatters() // api plain text output
+                     .AddBsonSerializerFormatters() // api BSON output
+                     .AddXmlSerializerFormatters() // api XML output                     
                      .AddFluentValidation() // api service model validation
                      .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
+            
             // Versioning
             services.AddApiVersioning();
 
