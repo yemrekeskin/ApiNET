@@ -5,17 +5,17 @@
 ## Data Model
 
 ## Technical Specifications
- - Validation - [FluentValidation](https://fluentvalidation.net/) for model validation
- - Database - Local SQL Server 
+ - Validation - [FluentValidation](https://fluentvalidation.net/) for model validation 
  - Data Access Framework - ORM - [EntityFrameworkCore](https://docs.microsoft.com/en-us/ef/core/) - Generic Repository
  - MediaTypeFormatter - [WebAPIContrib.Core](https://github.com/WebApiContrib/WebAPIContrib.Core)
+ - Database - Local SQL Server 
 
 ## API Design
 
  ### Use-Cases
  - Simple CRUD Operations 🆗
  - Bulk Operations 🆗
- - Filtering, searching and paging Operations
+ - Filtering, searching and paging Operations 🆗
  - Consume External API 🆗
     - HttpClient
     - ApiService
@@ -24,8 +24,9 @@
  - Versioning 🆗
  - XML/JSON Output 🆗
  - MediaType Formatters
+    - Plain-Text 🆗
     - CSV 🆗
-    - BSON 🆗
+    - BSON 🆗 -  [Binary JSON](http://bsonspec.org/)
  - Transactional Web Api
  - Api Licesing 🤔
  
@@ -34,18 +35,21 @@
   - API Gateway 🚩
  
  ### Performance
-  - Caching
+  - Caching 🆗
+      - Memory Cache 
+      - Http Cache-Control
   - Asynchronous Web Api 🆗
   - Content Compression (GZIP or Deflate)
-  - Faster Data Access
+  - Faster Data Access 🤔
+      - Consider alternatives ; ADO.NET, Dapper, Nosql Databases
   
  ### Security
   - Thottling - Rate Limiting - Preventing multi request 
   - Authentication - JWT
   - Authorization
-  - IP Restriction
-    - WhiteListing
-    - BlackListing
+  - IP Restriction 🆗
+    - WhiteListing - Allow traffic only to known addresses
+    - BlackListing - Deny traffic to known addresses
 
  ### Testing 
   - Unit Test
@@ -63,6 +67,7 @@
  ### Documentation
   - Swagger
   - Postman
+     - [ApiNET Services](https://documenter.getpostman.com/view/3164594/SW7XZ9Mj?version=latest)
   - API Portal  
     - https://developer.isbank.com.tr/
     - https://developer.turkishairlines.com/
