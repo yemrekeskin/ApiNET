@@ -5,31 +5,37 @@
 ## Data Model
 
 ## Technical Specifications
+ - Validation - [FluentValidation](https://fluentvalidation.net/) for model validation
+ - Database - Local SQL Server 
+ - Data Access Framework - ORM - [EntityFrameworkCore](https://docs.microsoft.com/en-us/ef/core/) - Generic Repository
+ - MediaTypeFormatter - [WebAPIContrib.Core](https://github.com/WebApiContrib/WebAPIContrib.Core)
 
 ## API Design
 
  ### Use-Cases
- - Simple CRUD Operations
- - Bulk Operations
+ - Simple CRUD Operations 🆗
+ - Bulk Operations 🆗
  - Filtering, searching and paging Operations
- - Consume External API
+ - Consume External API 🆗
+    - HttpClient
+    - ApiService
  - Request/Response Loging
- - Model Validations
- - Versioning
- - XML/JSON Output
-  - MediaType Formatters
-    - CSV
-    - BSON
+ - Model Validations 🆗
+ - Versioning 🆗
+ - XML/JSON Output 🆗
+ - MediaType Formatters
+    - CSV 🆗
+    - BSON 🆗
  - Transactional Web Api
- - Api Licesing
+ - Api Licesing 🤔
  
  ### Concepts
-  - Microservices
-  - API Gateway
+  - Microservices 🚩
+  - API Gateway 🚩
  
  ### Performance
   - Caching
-  - Asynchronous Web Api
+  - Asynchronous Web Api 🆗
   - Content Compression (GZIP or Deflate)
   - Faster Data Access
   
@@ -44,14 +50,25 @@
  ### Testing 
   - Unit Test
   - Load Test
+     - https://websurge.west-wind.com/
   - Scheduled Api Tester
+     - https://uptimerobot.com/
   - Health Check Page
-  - Status Page
+  - Status Page for API and System
+     - https://api.twitterstat.us/
+     - https://reddit.statuspage.io/
+     - https://status.dropbox.com/
+     - https://status.digitalocean.com/
 
  ### Documentation
   - Swagger
   - Postman
   - API Portal  
+    - https://developer.isbank.com.tr/
+    - https://developer.turkishairlines.com/
+    - https://apiportal.akbank.com/
+    - https://apiportal.yapikredi.com.tr/
+    - https://developers.garantibbva.com.tr/
 
 ## Contribution
 Pull requests are welcome, but make sure you sign the Contributor License Agreement.
