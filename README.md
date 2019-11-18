@@ -14,6 +14,7 @@
 
  ### Use-Cases
  - Simple CRUD Operations 🆗
+    - GET, POST, DELETE, PUT, HEAD, PATCH
  - Bulk Operations 🆗
  - Filtering, searching and paging Operations 🆗
  - Consume External API 🆗
@@ -65,8 +66,8 @@
      - https://status.digitalocean.com/
 
  ### Documentation
-  - Swagger
-  - Postman
+  - Swagger 🆗
+  - Postman 🆗
      - [ApiNET Services](https://documenter.getpostman.com/view/3164594/SW7XZ9Mj?version=latest)
   - API Portal  
     - https://developer.isbank.com.tr/
@@ -75,6 +76,16 @@
     - https://apiportal.yapikredi.com.tr/
     - https://developers.garantibbva.com.tr/
 
+ ### Tools
+  - [SoapUI](https://www.soapui.org/)
+  - [Postman](https://www.getpostman.com/)
+  - [Fiddler](https://www.telerik.com/fiddler)
+  - [Swagger](https://swagger.io/)
+  
+### Useful Links
+  - https://www.restapitutorial.com/
+  - https://restfulapi.net/
+ 
 ## Contribution
 Pull requests are welcome, but make sure you sign the Contributor License Agreement.
 
