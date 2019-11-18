@@ -8,6 +8,7 @@
  - Validation - [FluentValidation](https://fluentvalidation.net/) for model validation 
  - Data Access Framework - ORM - [EntityFrameworkCore](https://docs.microsoft.com/en-us/ef/core/) - Generic Repository
  - MediaTypeFormatter - [WebAPIContrib.Core](https://github.com/WebApiContrib/WebAPIContrib.Core)
+ - [Json PATCH](https://tools.ietf.org/html/rfc6902) - [Microsoft.AspNetCore.JsonPatch](https://www.nuget.org/packages/Microsoft.AspNetCore.JsonPatch/3.0.0)
  - Database - Local SQL Server 
 
 ## API Design
