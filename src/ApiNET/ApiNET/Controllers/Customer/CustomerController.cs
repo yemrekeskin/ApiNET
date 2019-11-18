@@ -159,9 +159,26 @@ namespace ApiNET.Controllers
             }
         }
 
-        [HttpPatch]
-        public IActionResult Patch([FromBody]JsonPatchDocument<CustomerUpdate> patch)
+        [HttpPatch("{id}")]
+        public IActionResult Patch(int id,[FromBody]JsonPatchDocument<CustomerUpdate> patch)
         {
+            var customer = customerService.GetCustomer(id);
+            if (customer == null)
+            {
+                return NotFound();
+            }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            CustomerUpdate customerUpdate = new CustomerUpdate();
+            customerUpdate.Age = customer.Age;
+            customerUpdate.Name = customer.Name;
+            customerUpdate.SurName = customer.SurName;
+
+            patch.ApplyTo(customerUpdate);            
+
             return Ok();
         }
     }
