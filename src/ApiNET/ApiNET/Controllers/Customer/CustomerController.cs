@@ -6,6 +6,7 @@ using ApiNET.Models;
 using ApiNET.Services;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiNET.Controllers
@@ -29,6 +30,7 @@ namespace ApiNET.Controllers
         }
 
         [HttpGet]
+        [HttpHead]
         public IActionResult Get()
         {
             var customers = cacheService.Get<List<Customer>>("CustomerList");
@@ -155,6 +157,12 @@ namespace ApiNET.Controllers
             {
                 return NotFound();
             }
+        }
+
+        [HttpPatch]
+        public IActionResult Patch([FromBody]JsonPatchDocument<CustomerUpdate> patch)
+        {
+            return Ok();
         }
     }
 }

@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ApiNET.Extension;
-using ApiNET.Middleware;
+﻿using ApiNET.Extension;
 using ApiNET.Repository;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json.Serialization;
+using Swashbuckle.AspNetCore.Swagger;
+using System;
 using WebApiContrib.Core.Formatter.Bson;
 using WebApiContrib.Core.Formatter.Csv;
 using WebApiContrib.Core.Formatter.PlainText;
@@ -38,10 +35,7 @@ namespace ApiNET
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
-            // Inject Application Options
-            services.Configure<ApplicationOptions>(Configuration.GetSection("ApplicationOptions"));
-
+            
             services.AddEntityFrameworkSqlServer()
                    .AddDbContext<ApplicationDbContext>(options =>
                        options.UseSqlServer(Configuration.GetConnectionString("ApplicationDb"), sqlServerOptions =>
@@ -49,11 +43,19 @@ namespace ApiNET
                            sqlServerOptions.UseRowNumberForPaging();
                        }));
 
+            // Inject Application Options
+            services.Configure<ApplicationOptions>(Configuration.GetSection("ApplicationOptions"));
+
             services.AddMvc()
                      // JSON serializer config
                      //.AddJsonOptions(options =>
                      //   options.SerializerSettings
                      //).
+                     //.AddJsonOptions(opt =>
+                     //{
+                     //    // API json syntax
+                     //    opt.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                     //})
                      .AddCsvSerializerFormatters() // api csv output
                      .AddPlainTextFormatters() // api plain text output
                      .AddBsonSerializerFormatters() // api BSON output
@@ -66,7 +68,31 @@ namespace ApiNET
 
             // Dependency Profile
             services.DependencyLoad();
-            
+
+
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info
+                {
+                    Version = "v1",
+                    Title = "ApiNET API",
+                    Description = "A simple example ASP.NET Core Web API",
+                    TermsOfService = "https://example.com/terms",
+                    Contact = new Contact
+                    {
+                        Name = "Shayne Boyer",
+                        Email = string.Empty,
+                        Url = "https://twitter.com/spboyer",
+                    },
+                    License = new License
+                    {
+                        Name = "Use under LICX",
+                        Url = "https://example.com/license",
+                    }
+                });
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -75,6 +101,11 @@ namespace ApiNET
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                app.UseSwagger();
+                app.UseSwaggerUI(c => {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");                    
+                });
             }
             else
             {
@@ -82,7 +113,7 @@ namespace ApiNET
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

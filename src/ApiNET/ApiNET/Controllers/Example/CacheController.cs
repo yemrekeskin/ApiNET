@@ -15,6 +15,7 @@ namespace ApiNET.Controllers.Example
         [AllowAnonymous]
         [Route("GetData")]
         [CacheFilter(TimeDuration = 100)]
+        [HttpGet]
         public IActionResult GetData()
         {
             Dictionary<object, object> obj = new Dictionary<object, object>
