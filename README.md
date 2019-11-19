@@ -46,12 +46,21 @@
       - Consider alternatives ; ADO.NET, Dapper, Nosql Databases
   
  ### Security
-  - Thottling - Rate Limiting - Preventing multi request 
+  - Thottling Web API
+    - Tiers of Throttling
+       - API-level throttling
+       - Application-level throttling
+       - User-level throttling
+       - Account-level throttling
+    - Rate-Limit Throttling
+    - IP-level Throttling 🆗
+      - WhiteListing - Allow traffic only to known addresses
+      - BlackListing - Deny traffic to known addresses
+    - Scope Limit Throttling
+    - Concurrent Connections Limit
+    - Resource-level Throttling    
   - Authentication - JWT
-  - Authorization
-  - IP Restriction 🆗
-    - WhiteListing - Allow traffic only to known addresses
-    - BlackListing - Deny traffic to known addresses
+  - Authorization  
 
  ### Testing 
   - Unit Test
@@ -82,8 +91,12 @@
   - [Postman](https://www.getpostman.com/)
   - [Fiddler](https://www.telerik.com/fiddler)
   - [Swagger](https://swagger.io/)
-  
-### Useful Links
+ 
+ ### Code Quality-Refactoring
+  - [API Analyzer](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers)
+  - [CodeMaid](http://www.codemaid.net/)
+ 
+ ### Useful Links
   - https://www.restapitutorial.com/
   - https://restfulapi.net/
  
