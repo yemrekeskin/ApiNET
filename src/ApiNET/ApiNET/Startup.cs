@@ -1,4 +1,5 @@
 ﻿using ApiNET.Extension;
+using ApiNET.Middleware;
 using ApiNET.Repository;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -6,12 +7,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
+using System.IO.Compression;
+using System.Linq;
 using System.Text;
 using WebApiContrib.Core.Formatter.Bson;
 using WebApiContrib.Core.Formatter.Csv;
@@ -40,7 +44,7 @@ namespace ApiNET
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
+            
             //************* JWT Authentication
 
             _signingKey = new SymmetricSecurityKey(
@@ -169,7 +173,7 @@ namespace ApiNET
 
             //Add our new middleware to the pipeline
             // web api request-response logging
-            //app.UseMiddleware<LoggingMiddleware>();
+            app.UseMiddleware<LoggingMiddleware>();
             app.UseIPFilter();
 
             app.UseMvc(routes =>

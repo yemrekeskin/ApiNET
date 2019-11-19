@@ -1,15 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Internal;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ApiNET.Middleware
 {
-    /// <summary>
-    /// https://exceptionnotfound.net/using-middleware-to-log-requests-and-responses-in-asp-net-core/
-    /// </summary>
     public class LoggingMiddleware
     {
         private readonly RequestDelegate _next;
@@ -19,68 +17,71 @@ namespace ApiNET.Middleware
             _next = next;
         }
 
-        public async Task Invoke(HttpContext context)
+        public async Task Invoke(HttpContext httpContext)
         {
-            //First, get the incoming request
-            var request = await FormatRequest(context.Request);
-
-            //Copy a pointer to the original response body stream
-            var originalBodyStream = context.Response.Body;
-
-            //Create a new memory stream...
-            using (var responseBody = new MemoryStream())
+            try
             {
-                //...and use that for the temporary response body
-                context.Response.Body = responseBody;
+                var request = httpContext.Request;
+                if (request.Path.StartsWithSegments(new PathString("/api")))
+                {
+                    var stopWatch = Stopwatch.StartNew();
+                    var requestTime = DateTime.UtcNow;
+                    var requestBodyContent = await ReadRequestBody(request);
+                    var originalBodyStream = httpContext.Response.Body;
+                    using (var responseBody = new MemoryStream())
+                    {
+                        var response = httpContext.Response;
+                        response.Body = responseBody;
+                        await _next(httpContext);
+                        stopWatch.Stop();
 
-                //Continue down the Middleware pipeline, eventually returning to this class
-                await _next(context);
+                        string responseBodyContent = null;
+                        responseBodyContent = await ReadResponseBody(response);
+                        await responseBody.CopyToAsync(originalBodyStream);
 
-                //Format the response from the server
-                var response = await FormatResponse(context.Response);
+                        // Logging
+                        String log = String.Concat(requestTime,
+                                    stopWatch.ElapsedMilliseconds,
+                                    response.StatusCode,
+                                    request.Method,
+                                    request.Path,
+                                    request.QueryString.ToString(),
+                                    requestBodyContent,
+                                    responseBodyContent);
 
-                //TODO: Save log to chosen datastore
-
-                //Copy the contents of the new memory stream (which contains the response) to the original stream, which is then returned to the client.
-                await responseBody.CopyToAsync(originalBodyStream);
+                        Trace.Write(log);
+                    }
+                }
+                else
+                {
+                    await _next(httpContext);
+                }
+            }
+            catch (Exception ex)
+            {
+                await _next(httpContext);
             }
         }
 
-        private async Task<string> FormatRequest(HttpRequest request)
+        private async Task<string> ReadRequestBody(HttpRequest request)
         {
-            var body = request.Body;
-
-            //This line allows us to set the reader for the request back at the beginning of its stream.
             request.EnableRewind();
 
-            //We now need to read the request stream.  First, we create a new byte[] with the same length as the request stream...
             var buffer = new byte[Convert.ToInt32(request.ContentLength)];
-
-            //...Then we copy the entire request stream into the new buffer.
             await request.Body.ReadAsync(buffer, 0, buffer.Length);
-
-            //We convert the byte[] into a string using UTF8 encoding...
             var bodyAsText = Encoding.UTF8.GetString(buffer);
+            request.Body.Seek(0, SeekOrigin.Begin);
 
-            //..and finally, assign the read body back to the request body, which is allowed because of EnableRewind()
-            request.Body = body;
-
-            return $"{request.Scheme} {request.Host}{request.Path} {request.QueryString} {bodyAsText}";
+            return bodyAsText;
         }
 
-        private async Task<string> FormatResponse(HttpResponse response)
+        private async Task<string> ReadResponseBody(HttpResponse response)
         {
-            //We need to read the response stream from the beginning...
+            response.Body.Seek(0, SeekOrigin.Begin);
+            var bodyAsText = await new StreamReader(response.Body).ReadToEndAsync();
             response.Body.Seek(0, SeekOrigin.Begin);
 
-            //...and copy it into a string
-            string text = await new StreamReader(response.Body).ReadToEndAsync();
-
-            //We need to reset the reader for the response so that the client can read it.
-            response.Body.Seek(0, SeekOrigin.Begin);
-
-            //Return the string for the response, including the status code (e.g. 200, 404, 401, etc.)
-            return $"{response.StatusCode}: {text}";
+            return bodyAsText;
         }
     }
 }

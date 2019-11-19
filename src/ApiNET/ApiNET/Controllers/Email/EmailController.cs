@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
+using ApiNET.Attribute;
 
 namespace ApiNET.Controllers
 {
@@ -21,7 +22,7 @@ namespace ApiNET.Controllers
         }
 
         [HttpGet]
-        [HttpHead]
+        [HttpHead]       
         public IActionResult Get()
         {
             var list = emailService.GetEmail();
