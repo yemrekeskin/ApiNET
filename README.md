@@ -4,6 +4,8 @@
 
 ## Data Model
 
+<img src="https://raw.githubusercontent.com/yemrekeskin/ApiNET/master/src/ClassDiagram.png" > 
+
 ## Technical Specifications
  - Validation - [FluentValidation](https://fluentvalidation.net/) for model validation 
  - Data Access Framework - ORM - [EntityFrameworkCore](https://docs.microsoft.com/en-us/ef/core/) - Generic Repository
@@ -11,7 +13,8 @@
  - [Json PATCH](https://tools.ietf.org/html/rfc6902) - [Microsoft.AspNetCore.JsonPatch](https://www.nuget.org/packages/Microsoft.AspNetCore.JsonPatch/3.0.0)
  - Database - Local SQL Server 
 
-## API Design
+## API Project Structure
+
 
  ### Use-Cases
  - Simple CRUD Operations 🆗
