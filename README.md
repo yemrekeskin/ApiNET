@@ -15,6 +15,7 @@
 
 ## API Project Structure
 
+<img src="https://raw.githubusercontent.com/yemrekeskin/ApiNET/master/src/ApiDesign.png" >
 
  ### Use-Cases
  - Simple CRUD Operations 🆗
