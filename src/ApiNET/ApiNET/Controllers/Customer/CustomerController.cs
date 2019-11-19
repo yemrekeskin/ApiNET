@@ -19,14 +19,24 @@ namespace ApiNET.Controllers
         private readonly IValidator<CustomerCreate> customerCreateValidator;
         private readonly ICacheService cacheService;
 
+        private readonly IAddressService addressService;
+        private readonly IPhoneService phoneService;
+        private readonly IEmailService emailService;
+
         public CustomerController(
             ICustomerService customerService,
             IValidator<CustomerCreate> customerCreateValidator,
-            ICacheService cacheService)
+            ICacheService cacheService,
+            IAddressService addressService,
+            IPhoneService phoneService,
+            IEmailService emailService)
         {
             this.customerService = customerService;
             this.customerCreateValidator = customerCreateValidator;
             this.cacheService = cacheService;
+            this.addressService = addressService;
+            this.emailService = emailService;
+            this.phoneService = phoneService;
         }
 
         [HttpGet]
@@ -172,12 +182,24 @@ namespace ApiNET.Controllers
                 return BadRequest(ModelState);
             }
 
+            // input mapping
             CustomerUpdate customerUpdate = new CustomerUpdate();
             customerUpdate.Age = customer.Age;
             customerUpdate.Name = customer.Name;
             customerUpdate.SurName = customer.SurName;
+            customerUpdate.CustomerRank = customer.CustomerRank;
 
-            patch.ApplyTo(customerUpdate);            
+            // PATCH operations apply
+            patch.ApplyTo(customerUpdate);
+
+            // output mapping
+            customer.Age = customerUpdate.Age;
+            customer.Name = customerUpdate.Name;
+            customer.SurName = customerUpdate.SurName;
+            customer.CustomerRank = customerUpdate.CustomerRank;
+
+            // update action
+            customerService.UpdateCustomer(customer);
 
             return Ok();
         }

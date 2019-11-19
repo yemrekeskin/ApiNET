@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 namespace ApiNET.Controllers
 {
     public class EmailDelete
+        : ServiceModel
     {
+
     }
 }
