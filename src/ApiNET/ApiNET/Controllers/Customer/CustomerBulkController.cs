@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Http;
 
 namespace ApiNET.Controllers
 {
@@ -21,6 +22,9 @@ namespace ApiNET.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesDefaultResponseType]
         public IActionResult Post([FromBody] IEnumerable<CustomerItem> customerItems)
         {
             if (customerItems == null)
@@ -57,6 +61,10 @@ namespace ApiNET.Controllers
         }
 
         [HttpGet("({ids})", Name = "GetCustomerCollection")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public IActionResult GetCollection(
             [ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<long> ids)
         {

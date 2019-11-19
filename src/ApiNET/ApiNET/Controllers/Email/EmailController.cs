@@ -2,6 +2,7 @@
 using ApiNET.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using Microsoft.AspNetCore.Http;
 
 namespace ApiNET.Controllers
 {
@@ -26,6 +27,9 @@ namespace ApiNET.Controllers
         }
 
         [HttpGet("{id}", Name = "GetEmail")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public IActionResult Get(int id)
         {
             var email = emailService.GetEmailById(id);
@@ -38,6 +42,9 @@ namespace ApiNET.Controllers
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public IActionResult Delete(int id)
         {
             var email = emailService.GetEmailById(id);
@@ -52,6 +59,10 @@ namespace ApiNET.Controllers
         }
 
         [HttpPost()]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
+        [ProducesDefaultResponseType]
         public IActionResult Post([FromBody] EmailCreate emailCreate)
         {
             if (emailCreate == null)
@@ -93,6 +104,10 @@ namespace ApiNET.Controllers
         }
 
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public IActionResult Put(long id, [FromBody] EmailUpdate emailUpdate)
         {
             if (ModelState.IsValid == false)

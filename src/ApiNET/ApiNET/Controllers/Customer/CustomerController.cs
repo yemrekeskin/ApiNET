@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 
 namespace ApiNET.Controllers
 {
@@ -54,6 +55,9 @@ namespace ApiNET.Controllers
         }
 
         [HttpGet("{id}", Name = "GetCustomer")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public IActionResult Get(int id)
         {
             var customer = customerService.GetCustomer(id);
@@ -66,6 +70,9 @@ namespace ApiNET.Controllers
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public IActionResult Delete(int id)
         {
             var customer = customerService.GetCustomer(id);
@@ -80,6 +87,10 @@ namespace ApiNET.Controllers
         }
 
         [HttpPost()]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
+        [ProducesDefaultResponseType]
         public IActionResult Post([FromBody] CustomerCreate customerCreate)
         {
             if (customerCreate == null)
@@ -126,6 +137,10 @@ namespace ApiNET.Controllers
         }
 
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public IActionResult Put(long id, [FromBody] CustomerUpdate customerUpdate)
         {
             if (ModelState.IsValid == false)
@@ -167,6 +182,10 @@ namespace ApiNET.Controllers
         }
 
         [HttpPatch("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public IActionResult Patch(int id, [FromBody]JsonPatchDocument<CustomerUpdate> patch)
         {
             var customer = customerService.GetCustomer(id);
