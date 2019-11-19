@@ -1,10 +1,7 @@
 <img src="https://raw.githubusercontent.com/yemrekeskin/ApiNET/master/api.png" width="50" height="50"> 
 
 ## ApiNET
-
-## Data Model
-
-<img src="https://raw.githubusercontent.com/yemrekeskin/ApiNET/master/src/ClassDiagram.png" > 
+This project contain web api use-case samples to build restful services for any applications
 
 ## Technical Specifications
  - Validation - [FluentValidation](https://fluentvalidation.net/) for model validation 
@@ -12,10 +9,9 @@
  - MediaTypeFormatter - [WebAPIContrib.Core](https://github.com/WebApiContrib/WebAPIContrib.Core)
  - [Json PATCH](https://tools.ietf.org/html/rfc6902) - [Microsoft.AspNetCore.JsonPatch](https://www.nuget.org/packages/Microsoft.AspNetCore.JsonPatch/3.0.0)
  - Database - Local SQL Server 
-
-## API Project Structure
-
-<img src="https://raw.githubusercontent.com/yemrekeskin/ApiNET/master/src/ApiDesign.png" >
+ - Project Details
+   - See [Data Model](https://raw.githubusercontent.com/yemrekeskin/ApiNET/master/src/ClassDiagram.png) by class diagram
+   - See [Project Structure](https://raw.githubusercontent.com/yemrekeskin/ApiNET/master/src/ApiDesign.png)
 
  ### Use-Cases
  - Simple CRUD Operations 🆗
@@ -63,7 +59,7 @@
     - Scope Limit Throttling
     - Concurrent Connections Limit
     - Resource-level Throttling    
-  - Authentication - JWT
+  - Authentication - JWT 🆗
   - Authorization  
 
  ### Testing 
