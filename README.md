@@ -21,7 +21,7 @@ This project contain web api use-case samples to build restful services for any 
  - Consume External API 🆗
     - HttpClient
     - ApiService
- - Request/Response Loging
+ - Request/Response Loging 🆗
  - Model Validations 🆗
  - Versioning 🆗
  - XML/JSON Output 🆗
@@ -79,7 +79,7 @@ This project contain web api use-case samples to build restful services for any 
   - Swagger 🆗
   - Postman 🆗
      - [ApiNET Services](https://documenter.getpostman.com/view/3164594/SW7XZ9Mj?version=latest)
-  - API Portal  
+  - API Portal 🎉
     - https://developer.isbank.com.tr/
     - https://developer.turkishairlines.com/
     - https://apiportal.akbank.com/
