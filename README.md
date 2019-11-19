@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/yemrekeskin/ApiNET/master/api.png" width="50" height="50"> 
 
 ## ApiNET
-
+This project contain web api use-case samples to build restful services for any applications
 ## Data Model
 
 <img src="https://raw.githubusercontent.com/yemrekeskin/ApiNET/master/src/ClassDiagram.png" > 
@@ -63,7 +63,7 @@
     - Scope Limit Throttling
     - Concurrent Connections Limit
     - Resource-level Throttling    
-  - Authentication - JWT
+  - Authentication - JWT 🆗
   - Authorization  
 
  ### Testing 
