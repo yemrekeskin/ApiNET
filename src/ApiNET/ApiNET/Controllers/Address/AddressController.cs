@@ -1,9 +1,10 @@
 ﻿using ApiNET.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiNET.Controllers
 {
-    [ApiVersion("1.0")]
+    [ApiVersion("1.0")]    
     public class AddressController
         : ApiControllerBase
     {

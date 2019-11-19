@@ -1,6 +1,7 @@
 ﻿using ApiNET.Extension;
 using ApiNET.Repository;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -8,7 +9,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
+using System;
+using System.Text;
 using WebApiContrib.Core.Formatter.Bson;
 using WebApiContrib.Core.Formatter.Csv;
 using WebApiContrib.Core.Formatter.PlainText;
@@ -17,6 +21,9 @@ namespace ApiNET
 {
     public class Startup
     {
+        private static SymmetricSecurityKey _signingKey;
+        private static JwtTokenConfiguration _jwtTokenConfiguration;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -33,6 +40,50 @@ namespace ApiNET
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            //************* JWT Authentication
+
+            _signingKey = new SymmetricSecurityKey(
+                                Encoding.ASCII.GetBytes(Configuration["Authentication:JwtBearer:SecurityKey"]));
+
+            _jwtTokenConfiguration = new JwtTokenConfiguration
+            {
+                Issuer = Configuration["Authentication:JwtBearer:Issuer"],
+                Audience = Configuration["Authentication:JwtBearer:Audience"],
+                SigningCredentials = new SigningCredentials(_signingKey, SecurityAlgorithms.HmacSha256),
+                StartDate = DateTime.UtcNow,
+                EndDate = DateTime.UtcNow.AddDays(60),
+            };
+
+            services.Configure<JwtTokenConfiguration>(config =>
+            {
+                config.Audience = _jwtTokenConfiguration.Audience;
+                config.EndDate = _jwtTokenConfiguration.EndDate;
+                config.Issuer = _jwtTokenConfiguration.Issuer;
+                config.StartDate = _jwtTokenConfiguration.StartDate;
+                config.SigningCredentials = _jwtTokenConfiguration.SigningCredentials;
+            });
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(jwtBearerOptions =>
+            {
+                jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateActor = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = _jwtTokenConfiguration.Issuer,
+                    ValidAudience = _jwtTokenConfiguration.Audience,
+                    IssuerSigningKey = _signingKey
+                };
+            });
+
+            // *************************** End of JWT Authentication
+
 
             services.AddEntityFrameworkSqlServer()
                    .AddDbContext<ApplicationDbContext>(options =>
@@ -114,6 +165,7 @@ namespace ApiNET
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             //Add our new middleware to the pipeline
             // web api request-response logging

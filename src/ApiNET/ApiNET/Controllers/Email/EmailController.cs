@@ -3,10 +3,12 @@ using ApiNET.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ApiNET.Controllers
 {
     [ApiVersion("1.0")]
+    [Authorize]
     public class EmailController
         : ApiControllerBase
     {

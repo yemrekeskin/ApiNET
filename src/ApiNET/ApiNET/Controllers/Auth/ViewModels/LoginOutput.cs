@@ -1,4 +1,4 @@
-﻿namespace ApiNET.WebApi
+﻿namespace ApiNET.Controllers
 {
     public class LoginOutput
     {
