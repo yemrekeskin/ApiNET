@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ApiNET.Models.BaseModel">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAAAAAAAAAAQAAAAAAAAAAgAEAQAAAAA=</HashCode>
+      <FileName>Models\BaseModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApiNET.Models.Customer">
+    <Position X="7" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAEAAQAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Models\Customer\Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApiNET.Models.Address">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQIAAgAAAAAAAAAAEAQAAAIAABAAAAIAgAQAACQ=</HashCode>
+      <FileName>Models\Address\Address.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApiNET.Models.Email">
+    <Position X="9.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAQAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAgAAACA=</HashCode>
+      <FileName>Models\Email\Email.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApiNET.Models.Phone">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAEAABAAEAAIAABAAAAAAAAAAACA=</HashCode>
+      <FileName>Models\Phone\Phone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ApiNET.Models.CustomerRank">
+    <Position X="7" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgIAAAAAAAAAAAAAABAAAAAAAAAAgAAAAAAAAAAAAE=</HashCode>
+      <FileName>Models\Customer\CustomerRank.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ApiNET.Models.AddressType">
+    <Position X="4.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Address\AddressType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ApiNET.Models.EmailType">
+    <Position X="9.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAABAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Email\EmailType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ApiNET.Models.PhoneType">
+    <Position X="11" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAQAAACAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Phone\PhoneType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
