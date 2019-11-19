@@ -1,23 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Formatting;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using ApiNET.Attribute;
-using ApiNET.Models;
-using ApiNET.Services;
-using Microsoft.AspNetCore.Http;
+﻿using ApiNET.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ApiNET.Controllers
 {
     [ApiVersion("2.0")]
-    public class ExternalController 
+    public class ExternalController
         : ApiControllerBase
     {
         private readonly IApiService apiService;
+
         public ExternalController(
             IApiService apiService)
         {

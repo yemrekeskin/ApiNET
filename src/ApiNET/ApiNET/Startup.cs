@@ -8,9 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.Swagger;
-using System;
 using WebApiContrib.Core.Formatter.Bson;
 using WebApiContrib.Core.Formatter.Csv;
 using WebApiContrib.Core.Formatter.PlainText;
@@ -35,7 +33,7 @@ namespace ApiNET
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            
+
             services.AddEntityFrameworkSqlServer()
                    .AddDbContext<ApplicationDbContext>(options =>
                        options.UseSqlServer(Configuration.GetConnectionString("ApplicationDb"), sqlServerOptions =>
@@ -59,16 +57,15 @@ namespace ApiNET
                      .AddCsvSerializerFormatters() // api csv output
                      .AddPlainTextFormatters() // api plain text output
                      .AddBsonSerializerFormatters() // api BSON output
-                     .AddXmlSerializerFormatters() // api XML output                     
+                     .AddXmlSerializerFormatters() // api XML output
                      .AddFluentValidation() // api service model validation
                      .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            
+
             // Versioning
             services.AddApiVersioning();
 
             // Dependency Profile
             services.DependencyLoad();
-
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
@@ -92,7 +89,6 @@ namespace ApiNET
                     }
                 });
             });
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -103,8 +99,9 @@ namespace ApiNET
                 app.UseDeveloperExceptionPage();
 
                 app.UseSwagger();
-                app.UseSwaggerUI(c => {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");                    
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                 });
             }
             else
@@ -113,7 +110,7 @@ namespace ApiNET
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ApiNET.Models
 {
@@ -14,7 +11,6 @@ namespace ApiNET.Models
     public interface IModel
      : IModel<long>
     {
-
     }
 
     public abstract class BaseModel

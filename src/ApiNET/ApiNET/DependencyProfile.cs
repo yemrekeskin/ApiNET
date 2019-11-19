@@ -4,10 +4,6 @@ using ApiNET.Repository;
 using ApiNET.Services;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ApiNET
 {
@@ -22,7 +18,7 @@ namespace ApiNET
             // Address
             services.AddScoped<IRepository<Address>, Repository<Address, ApplicationDbContext>>();
             services.AddScoped<IAddressService, AddressService>();
-            
+
             // Phone
             services.AddScoped<IRepository<Phone>, Repository<Phone, ApplicationDbContext>>();
             services.AddScoped<IPhoneService, PhoneService>();

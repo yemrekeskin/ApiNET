@@ -1,21 +1,22 @@
 ﻿using ApiNET.Models;
 using ApiNET.Repository;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ApiNET.Services
 {
     public interface IAddressService
     {
         Address AddAddress(Address address);
-       
+
         bool UpdateAddress(Address address);
+
         bool DeleteAddress(long id);
 
         List<Address> GetAddress();
+
         List<Address> GetAddressByCustomerId(long customerId);
+
         Address GetAddressById(long id);
     }
 

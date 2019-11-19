@@ -1,9 +1,7 @@
 ﻿using ApiNET.Models;
 using ApiNET.Repository;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ApiNET.Services
 {
@@ -12,12 +10,14 @@ namespace ApiNET.Services
         Email AddEmail(Email email);
 
         bool UpdateEmail(Email email);
-        bool DeleteEmail(long id); 
 
-        List<Email> GetEmail(); 
+        bool DeleteEmail(long id);
+
+        List<Email> GetEmail();
+
         List<Email> GetEmailByCustomerId(long customerId);
-        Email GetEmailById(long id);
 
+        Email GetEmailById(long id);
     }
 
     public class EmailService

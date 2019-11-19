@@ -1,17 +1,11 @@
-﻿using ApiNET.Helper;
-using Microsoft.AspNetCore.Mvc.Filters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace ApiNET.Attribute
 {
     /// <summary>
     /// https://www.radenkozec.com/asp-net-web-api-gzip-compression-actionfilter/
     /// </summary>
-    public class DeflateCompression 
+    public class DeflateCompression
         : ActionFilterAttribute
     {
         public override void OnActionExecuted(ActionExecutedContext context)

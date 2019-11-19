@@ -1,20 +1,18 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 
 namespace ApiNET.Controllers
 {
-    public partial class ExampleController 
+    public partial class ExampleController
         : ApiControllerBase
     {
         [HttpGet]
         [Route("persons")]
         public ActionResult<PagedList<Person>> Get([FromQuery] FilterModel filter)
         {
-            //Filtering logic  
+            //Filtering logic
             Func<FilterModel, IEnumerable<Person>> filterData = (filterModel) =>
             {
                 return persons.Where(p => p.Name.StartsWith(filterModel.Term ?? String.Empty, StringComparison.InvariantCultureIgnoreCase))
@@ -22,16 +20,16 @@ namespace ApiNET.Controllers
                 .Take(filterModel.Limit);
             };
 
-            //Get the data for the current page  
+            //Get the data for the current page
             var result = new PagedList<Person>();
             result.Items = filterData(filter);
 
-            //Get next page URL string  
+            //Get next page URL string
             FilterModel nextFilter = filter.Clone() as FilterModel;
             nextFilter.Page += 1;
             String nextUrl = filterData(nextFilter).Count() <= 0 ? null : this.Url.Action("Get", null, nextFilter, Request.Scheme);
 
-            //Get previous page URL string  
+            //Get previous page URL string
             FilterModel previousFilter = filter.Clone() as FilterModel;
             previousFilter.Page -= 1;
             String previousUrl = previousFilter.Page <= 0 ? null : this.Url.Action("Get", null, previousFilter, Request.Scheme);

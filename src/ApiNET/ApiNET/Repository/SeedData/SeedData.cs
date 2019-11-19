@@ -1,8 +1,4 @@
 ﻿using ApiNET.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ApiNET.Repository
 {
@@ -30,6 +26,6 @@ namespace ApiNET.Repository
             return DefaultPhone.AllPhone().ToArray();
         }
 
-        #endregion
+        #endregion BuildData
     }
 }

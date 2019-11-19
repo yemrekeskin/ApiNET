@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -13,7 +12,7 @@ namespace ApiNET.Middleware
         private readonly RequestDelegate _next;
         private readonly ApplicationOptions _applicationOptions;
 
-        public IPFilterMiddleware(RequestDelegate next, 
+        public IPFilterMiddleware(RequestDelegate next,
             IOptions<ApplicationOptions> applicationOptionsAccessor)
         {
             _next = next;

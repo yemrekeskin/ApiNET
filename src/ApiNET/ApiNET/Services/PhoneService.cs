@@ -1,9 +1,7 @@
 ﻿using ApiNET.Models;
 using ApiNET.Repository;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ApiNET.Services
 {
@@ -12,10 +10,13 @@ namespace ApiNET.Services
         Phone AddPhone(Phone phone);
 
         bool UpdatePhone(Phone phone);
+
         bool DeletePhone(long id);
 
         List<Phone> GetPhone();
+
         List<Phone> GetPhoneByCustomerId(long customerId);
+
         Phone GetPhoneById(long id);
     }
 

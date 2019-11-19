@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Internal;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +11,7 @@ namespace ApiNET.Middleware
     /// https://exceptionnotfound.net/using-middleware-to-log-requests-and-responses-in-asp-net-core/
     /// </summary>
     public class LoggingMiddleware
-    { 
+    {
         private readonly RequestDelegate _next;
 
         public LoggingMiddleware(RequestDelegate next)

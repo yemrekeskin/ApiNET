@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace ApiNET.Models
+﻿namespace ApiNET.Models
 {
     /// <summary>
     /// Address data model
@@ -8,7 +6,7 @@ namespace ApiNET.Models
     public partial class Address
         : BaseModel
     {
-        public int CustomerId { get; set; } 
+        public int CustomerId { get; set; }
 
         public AddressType AddressType { get; set; }
 

@@ -1,9 +1,5 @@
 ﻿using ApiNET.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ApiNET.Repository
 {
@@ -19,12 +15,10 @@ namespace ApiNET.Repository
         public ApplicationDbContext(DbContextOptions options)
            : base(options)
         {
-
         }
 
         public ApplicationDbContext()
         {
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

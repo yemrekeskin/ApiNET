@@ -1,17 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.Extensions.Primitives;
 using Microsoft.Net.Http.Headers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ApiNET.Attribute
 {
     /// <summary>
     /// https://www.c-sharpcorner.com/article/implementing-caching-in-web-api/
     /// </summary>
-    public class CacheFilter 
+    public class CacheFilter
         : ActionFilterAttribute
     {
         public int TimeDuration { get; set; }

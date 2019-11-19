@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ApiNET.Models;
+﻿using ApiNET.Models;
 using ApiNET.Services;
 using FluentValidation;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 
 namespace ApiNET.Controllers
 {
     [ApiVersion("1.0")]
-    public class CustomerController 
+    public class CustomerController
         : ApiControllerBase
     {
         private readonly ICustomerService customerService;
@@ -170,7 +167,7 @@ namespace ApiNET.Controllers
         }
 
         [HttpPatch("{id}")]
-        public IActionResult Patch(int id,[FromBody]JsonPatchDocument<CustomerUpdate> patch)
+        public IActionResult Patch(int id, [FromBody]JsonPatchDocument<CustomerUpdate> patch)
         {
             var customer = customerService.GetCustomer(id);
             if (customer == null)

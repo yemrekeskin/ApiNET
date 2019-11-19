@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 
 namespace ApiNET.Tests
@@ -8,7 +7,6 @@ namespace ApiNET.Tests
         [Fact]
         public void Test1()
         {
-
         }
     }
 }

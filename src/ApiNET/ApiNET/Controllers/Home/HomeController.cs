@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using ApiNET.Services;
+﻿using ApiNET.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiNET.Controllers
 {
-    public class HomeController 
+    public class HomeController
         : Controller
     {
         private readonly ICustomerService customerService;

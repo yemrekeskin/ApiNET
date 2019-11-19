@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
@@ -31,9 +30,9 @@ namespace ApiNET.Binder
                 return Task.CompletedTask;
             }
 
-            // The value isn't null or whitespace, 
-            // and the type of the model is enumerable. 
-            // Get the enumerable's type, and a converter 
+            // The value isn't null or whitespace,
+            // and the type of the model is enumerable.
+            // Get the enumerable's type, and a converter
             var elementType = bindingContext.ModelType.GetTypeInfo().GenericTypeArguments[0];
             var converter = TypeDescriptor.GetConverter(elementType);
 
@@ -42,12 +41,12 @@ namespace ApiNET.Binder
                 .Select(x => converter.ConvertFromString(x.Trim()))
                 .ToArray();
 
-            // Create an array of that type, and set it as the Model value 
+            // Create an array of that type, and set it as the Model value
             var typedValues = Array.CreateInstance(elementType, values.Length);
             values.CopyTo(typedValues, 0);
             bindingContext.Model = typedValues;
 
-            // return a successful result, passing in the Model 
+            // return a successful result, passing in the Model
             bindingContext.Result = ModelBindingResult.Success(bindingContext.Model);
             return Task.CompletedTask;
         }

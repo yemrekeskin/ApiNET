@@ -1,8 +1,6 @@
 ﻿using ApiNET.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ApiNET.Repository
 {
@@ -16,7 +14,7 @@ namespace ApiNET.Repository
                 Email2
             };
         }
-        
+
         public static readonly Email Email1 = new Email
         {
             Id = 1,
@@ -32,7 +30,7 @@ namespace ApiNET.Repository
             ModifyUser = "SYSTEM",
             DateModified = DateTime.Now
         };
-                
+
         public static readonly Email Email2 = new Email
         {
             Id = 2,

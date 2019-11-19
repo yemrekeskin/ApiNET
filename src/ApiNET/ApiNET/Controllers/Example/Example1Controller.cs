@@ -1,13 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 
 namespace ApiNET.Controllers
 {
-    public partial class ExampleController 
+    public partial class ExampleController
         : ApiControllerBase
     {
         [HttpGet]
@@ -38,7 +34,6 @@ namespace ApiNET.Controllers
                     LocalizationCulture = "en-US",
                     ResourceKey = "test",
                     ResourceValue = "test value"
-
                 },
                 new LocalizationRecord
                 {

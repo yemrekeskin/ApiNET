@@ -3,18 +3,19 @@ using ApiNET.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ApiNET.Services
 {
     public interface ICustomerService
     {
         List<Customer> GetCustomers();
+
         List<Customer> GetCustomers(IEnumerable<long> ids);
 
         Customer GetCustomer(long id);
 
         bool UpdateCustomer(Customer customer);
+
         bool DeleteCustomer(long id);
 
         Customer AddCustomer(Customer customer);
@@ -28,7 +29,6 @@ namespace ApiNET.Services
         private readonly IAddressService addressService;
         private readonly IPhoneService phoneService;
         private readonly IEmailService emailService;
-
 
         public CustomerService(
             IRepository<Customer> customerRepo,

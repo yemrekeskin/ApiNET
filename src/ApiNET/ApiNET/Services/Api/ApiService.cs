@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +9,7 @@ using System.Web;
 
 namespace ApiNET.Services
 {
-    public class ApiService 
+    public class ApiService
         : IApiService
     {
         private readonly ILoggerFactory loggerFactory;
@@ -92,8 +91,6 @@ namespace ApiNET.Services
                     var content = await response.Content.ReadAsStringAsync();
                     result.Success = true;
                     result.Result = JsonConvert.DeserializeObject<T>(content);
-
-
                 }
             }
             catch (Exception ex)

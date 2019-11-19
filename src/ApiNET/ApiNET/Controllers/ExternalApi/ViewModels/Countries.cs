@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace ApiNET.Controllers
+﻿namespace ApiNET.Controllers
 {
     public class Countries
     {
@@ -15,6 +10,5 @@ namespace ApiNET.Controllers
 
         public string Region { get; set; }
         public string Subregion { get; set; }
-
     }
 }

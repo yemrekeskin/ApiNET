@@ -1,15 +1,14 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ApiNET.Services
 {
     public interface ICacheService
-    { 
+    {
         T Get<T>(string name);
+
         T Add<T>(string name, T data);
+
         void Clear(string name);
     }
 
@@ -17,6 +16,7 @@ namespace ApiNET.Services
         : ICacheService
     {
         private IMemoryCache MemoryCache { get; set; }
+
         public CacheService(IMemoryCache MemoryCache)
         {
             this.MemoryCache = MemoryCache;

@@ -1,8 +1,6 @@
 ﻿using ApiNET.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ApiNET.Repository
 {
@@ -41,7 +39,7 @@ namespace ApiNET.Repository
             CreateUser = "SYSTEM",
             DateCreated = DateTime.Now,
             ModifyUser = "SYSTEM",
-            DateModified = DateTime.Now            
+            DateModified = DateTime.Now
         };
 
         public static readonly Address Address2 = new Address

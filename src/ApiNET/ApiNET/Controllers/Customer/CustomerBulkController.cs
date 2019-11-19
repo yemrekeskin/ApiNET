@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ApiNET.Binder;
+﻿using ApiNET.Binder;
 using ApiNET.Models;
 using ApiNET.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ApiNET.Controllers
 {
     [ApiVersion("1.0")]
-    public class CustomerBulkController 
+    public class CustomerBulkController
         : ApiControllerBase
     {
         private readonly ICustomerService customerService;
@@ -46,7 +44,7 @@ namespace ApiNET.Controllers
                     DateModified = DateTime.Now
                 };
                 // Add action
-                customerService.AddCustomer(customer);                
+                customerService.AddCustomer(customer);
             }
 
             var customerItemsToReturn = customerItems;
