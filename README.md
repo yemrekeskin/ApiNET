@@ -32,6 +32,16 @@ This project contain web api use-case samples to build restful services for any 
  - Transactional Web Api
  - Api Licesing 🤔
  
+ ### OData Services with Web Api
+   - OData (Open Data Protocol) 🆗 
+   - [Microsoft.AspNetCore.OData](https://www.nuget.org/packages/Microsoft.AspNetCore.OData)
+   - About Standarts
+      - https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=odata
+      - https://www.odata.org/
+   - Links
+      - https://docs.microsoft.com/en-gb/odata/
+      - https://devblogs.microsoft.com/odata/
+
  ### Concepts
   - Microservices 🚩
   - API Gateway 🚩
