@@ -12,6 +12,8 @@ namespace ApiNET.Repository
         public DbSet<Phone> Phones { get; set; }
         public DbSet<Email> Emails { get; set; }
 
+        public DbSet<Employee> Employees { get; set; } 
+
         public ApplicationDbContext(DbContextOptions options)
            : base(options)
         {

@@ -27,6 +27,10 @@ namespace ApiNET
             services.AddScoped<IRepository<Email>, Repository<Email, ApplicationDbContext>>();
             services.AddScoped<IEmailService, EmailService>();
 
+            // Employees
+            services.AddScoped<IRepository<Employee>, Repository<Employee, ApplicationDbContext>>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
+
             // External
             services.AddScoped<IApiService, ApiService>();
 

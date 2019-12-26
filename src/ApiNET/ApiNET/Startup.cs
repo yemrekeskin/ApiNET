@@ -1,7 +1,10 @@
 ﻿using ApiNET.Extension;
 using ApiNET.Middleware;
+using ApiNET.Models;
 using ApiNET.Repository;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNet.OData.Builder;
+using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OData.Edm;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.IO.Compression;
@@ -99,7 +103,7 @@ namespace ApiNET
             // Inject Application Options
             services.Configure<ApplicationOptions>(Configuration.GetSection("ApplicationOptions"));
 
-            services.AddMvc()
+            services.AddMvc(d => d.EnableEndpointRouting = false)
                      // JSON serializer config
                      //.AddJsonOptions(options =>
                      //   options.SerializerSettings
@@ -144,6 +148,9 @@ namespace ApiNET
                     }
                 });
             });
+
+            // ODATA 
+            services.AddOData();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -178,10 +185,21 @@ namespace ApiNET
 
             app.UseMvc(routes =>
             {
+                routes.Select().Expand().Filter().OrderBy().MaxTop(100).Count();
+                routes.MapODataServiceRoute("odata", "odata", GetEdmModel());
+
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+
+        private static IEdmModel GetEdmModel()
+        {
+            ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
+            builder.EntitySet<Employee>("Employee");
+            return builder.GetEdmModel();
         }
     }
 }
