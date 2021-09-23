@@ -14,7 +14,7 @@ namespace ApiNET.Attribute
         public override void OnActionExecuted(ActionExecutedContext context)
         {
             var content = context.HttpContext.Response.Body;
-            byte[] bytes = null; // = content?.ReadByte();
+            byte[] bytes = null;
 
             using (var ms = new MemoryStream(2048))
             {

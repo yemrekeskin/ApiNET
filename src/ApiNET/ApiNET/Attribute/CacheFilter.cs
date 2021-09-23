@@ -17,15 +17,5 @@ namespace ApiNET.Attribute
 
             base.OnActionExecuted(context);
         }
-
-        //public override void OnActionExecuted(HttpActionExecutedContext actionExecutedContext)
-        //{
-        //    actionExecutedContext.Response.Headers.CacheControl = new CacheControlHeaderValue
-        //    {
-        //        MaxAge = TimeSpan.FromSeconds(TimeDuration),
-        //        MustRevalidate = true,
-        //        Public = true
-        //    };
-        //}
     }
 }
