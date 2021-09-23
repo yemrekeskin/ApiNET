@@ -107,12 +107,11 @@ This project contain web api use-case samples to build restful services for any 
   - [CodeMaid](http://www.codemaid.net/)
  
  ### Useful Links
-  - https://www.restapitutorial.com/
+  - https://www.restapitutorial.com
   - https://restfulapi.net/
  
 ## Contribution
 Pull requests are welcome, but make sure you sign the Contributor License Agreement.
 
 ## License
-
 ApiNET is licensed under the MIT license. Check the [LICENSE](LICENSE) file for details.
